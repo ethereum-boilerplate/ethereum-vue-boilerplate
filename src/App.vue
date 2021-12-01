@@ -1,29 +1,31 @@
 <template>
-  <div style="display: grid; justify-content: center">
-    <!-- TODO: When Authenticated -> turn into avatar with disconnect button on popup -->
-    <Authenticate />
-    
-    <Coin :address="shibaInuAddress" :chain="chainId"/>
+    <a-layout>
 
-    <!-- TODO: Add logo and styling to Current Chain -->
-    <Chain />
-    
-    <!-- TODO: Styling -->
-    <NativeBalance />
+    <a-layout-header style="display: flex">
+      <Authenticate />
+      <NativeBalance />
+      <Chain />
+    </a-layout-header>
 
-    <!-- Ready2Go, TODO: Router/Switch -->
-    <ERC20Transfers />
-    <ERC20Balances />
-    <NativeTransactions />
-  </div>
+    <a-layout-content>
+      <ERC20Transfers />
+      <!-- <ERC20Balances /> -->
+      <!-- <NativeTransactions /> -->
+    </a-layout-content>
+
+    <a-layout-footer>
+      <Coin :address="shibaInuAddress" :chain="chainId"/>
+    </a-layout-footer>
+
+    </a-layout>
 </template>
 
 <script>
 import Authenticate from './components/Authenticate.vue'
 import ERC20Transfers from './components/ERC20Transfers.vue'
-import ERC20Balances from './components/ERC20Balances.vue'
+// import ERC20Balances from './components/ERC20Balances.vue'
 import NativeBalance from './components/NativeBalance.vue'
-import NativeTransactions from './components/NativeTransactions.vue'
+// import NativeTransactions from './components/NativeTransactions.vue'
 import Chain from './components/Chain.vue'
 import Coin from './components/Coin.vue'
 import useMoralis from './hooks/useMoralis'
@@ -32,9 +34,9 @@ export default {
   components: {
     Authenticate,
     ERC20Transfers,
-    ERC20Balances,
+    // ERC20Balances,
     NativeBalance,
-    NativeTransactions,
+    // NativeTransactions,
     Chain,
     Coin
   },
@@ -56,6 +58,5 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
 }
 </style>

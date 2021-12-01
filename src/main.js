@@ -1,7 +1,7 @@
 import { createApp } from 'vue'
 import App from './App.vue'
 import Moralis from './plugins/moralis'
-import { Button, Table, Tag, Image, Tooltip, Card } from 'ant-design-vue';
+import { Button, Table, Tag, Image, Tooltip, Card, Layout, LayoutHeader, LayoutContent, LayoutFooter } from 'ant-design-vue';
 import 'ant-design-vue/dist/antd.css';
 
 createApp(App)
@@ -12,4 +12,8 @@ createApp(App)
   .use(Image)
   .use(Tooltip)
   .use(Card)
+  .use(Layout)
+  .use(LayoutHeader)
+  .use(LayoutContent)
+  .use(LayoutFooter)
   .mount('#app')

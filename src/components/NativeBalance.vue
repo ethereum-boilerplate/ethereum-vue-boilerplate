@@ -1,7 +1,7 @@
 <template>
-  <div v-if="isAuthenticated" style="display: flex; justify-content: center;" >
+  <div v-if="isAuthenticated" style="display: flex; border: 1px solid black; border-radius: 0.25em; padding: 0.25em; margin: auto; justify-content: center; align-items: center; background-color: white; height: 35px;" >
     <img width="25" height="25" :src="imgUrl"/>
-    <p style="margin: 0 0 0 .25em; align-self: center">{{( nativeBalance > 0 ? nativeBalance.toFixed(4) : 0 )}} {{currencySymbol}}</p>
+    <p style="margin: 0px; align-self: center">{{( nativeBalance > 0 ? nativeBalance.toFixed(4) : 0 )}} {{currencySymbol}}</p>
   </div>
 </template>
 
@@ -19,9 +19,9 @@ export default {
 
         watchEffect(() => 
         chainId.value === "0x1" ? 
-        imgUrl.value = "https://www.pngkey.com/png/detail/264-2645294_download-svg-download-png-ethereum-png.png" 
+        imgUrl.value = "https://cryptologos.cc/logos/ethereum-eth-logo.svg?v=014" 
         : chainId.value === "0x38" ?
-        imgUrl.value = "https://assets.trustwalletapp.com/blockchains/smartchain/info/logo.png" 
+        imgUrl.value = "https://cryptologos.cc/logos/binance-coin-bnb-logo.svg?v=014" 
         : chainId.value === "0xa86a" ?
         imgUrl.value = "https://cryptologos.cc/logos/avalanche-avax-logo.png" 
         : chainId.value === "0x89" ? 

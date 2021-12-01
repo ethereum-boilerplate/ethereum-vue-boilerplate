@@ -1,11 +1,12 @@
 <template>
-<div style="display: flex; align-items: center">
- <img :src="tokenInfo?.logo" width="25" height="25"/> <p>{{tokenInfo?.symbol}}</p> <p>${{price?.toFixed(7)}}</p>
+<div v-if="isAuthenticated" style="display: flex; justify-content: center">
+ <img :src="tokenInfo?.logo" width="25" height="25"/> <p style="margin: 0px">{{tokenInfo?.symbol}}</p> <p style="margin: 0px">${{price?.toFixed(7)}}</p>
 </div>
 </template>
 
 <script>
 import useMoralisWeb3Api from '../hooks/useMoralisWeb3Api'
+import useMoralis from '../hooks/useMoralis'
 import { ref, watchEffect } from 'vue'
 export default {
     props: {
@@ -13,7 +14,8 @@ export default {
         chain: String
     },
     setup(props) {
-        
+
+        const { isAuthenticated } = useMoralis()
         const { token } = useMoralisWeb3Api()
         const price = ref(null)
         const tokenInfo = ref(null)
@@ -46,7 +48,8 @@ export default {
 
         return {
             price,
-            tokenInfo
+            tokenInfo,
+            isAuthenticated
         }
     }
 }
