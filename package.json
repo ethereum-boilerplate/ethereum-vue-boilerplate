@@ -1,0 +1,51 @@
+{
+  "name": "vue-boilerplate",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build",
+    "lint": "vue-cli-service lint"
+  },
+  "dependencies": {
+    "@ant-design/icons-vue": "^6.0.1",
+    "@emotion/css": "^11.5.0",
+    "@walletconnect/web3-provider": "^1.6.6",
+    "ant-design-vue": "^2.2.8",
+    "babel-plugin-import": "^1.13.3",
+    "core-js": "^3.6.5",
+    "less": "^4.1.2",
+    "less-loader": "^10.2.0",
+    "moralis": "^0.0.134",
+    "vue": "^3.0.0",
+    "vuex": "^4.0.2"
+  },
+  "devDependencies": {
+    "@vue/cli-plugin-babel": "~4.5.0",
+    "@vue/cli-plugin-eslint": "~4.5.0",
+    "@vue/cli-service": "~4.5.0",
+    "@vue/compiler-sfc": "^3.0.0",
+    "babel-eslint": "^10.1.0",
+    "eslint": "^6.7.2",
+    "eslint-plugin-vue": "^7.0.0"
+  },
+  "eslintConfig": {
+    "root": true,
+    "env": {
+      "node": true
+    },
+    "extends": [
+      "plugin:vue/vue3-essential",
+      "eslint:recommended"
+    ],
+    "parserOptions": {
+      "parser": "babel-eslint"
+    },
+    "rules": {}
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead"
+  ]
+}
