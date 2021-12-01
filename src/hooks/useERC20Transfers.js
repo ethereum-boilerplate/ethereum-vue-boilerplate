@@ -2,8 +2,8 @@ import useMoralis from './useMoralis'
 import useMoralisWeb3API from './useMoralisWeb3Api'
 import { ref, watchEffect } from 'vue' 
 
-const { user, isAuthenticated, chainId } = useMoralis()
-const { account } = useMoralisWeb3API()
+const { Moralis, user, isAuthenticated, chainId } = useMoralis()
+const { account, token } = useMoralisWeb3API()
 
 const erc20Transfers = ref(null)
 const isLoading = ref(false)
@@ -19,13 +19,48 @@ function getERC20Transfers () {
     }
     )
     .then((result) => {
-        erc20Transfers.value = result.result
-        isLoading.value = false
+        getMetaData(result.result)
+        .then((res) => {
+            console.log(res)
+            erc20Transfers.value = res
+            isLoading.value = false
+        })
     })
     .catch((err) => {
         error.value = err
         isLoading.value = false
     })
+}
+
+async function getMetaData (result) {
+
+    const tokens = []
+    result.map((tx) => {
+        tokens.push(tx.address)
+    })
+
+    await token.getTokenMetadata({
+        addresses: tokens,
+        chain: chainId.value
+    })
+    .then((res) => {
+        result.map((tx) => {
+            for(let i = 0; i < res.length; i++) {
+                if(tx.address === res[i].address) {
+                    tx.in = user.value?.get('ethAddress') === tx.from_address ? true : false
+                    tx.symbol = res[i].symbol
+                    tx.logo = res[i].logo
+                    tx.val = `${Number(Moralis.Units.FromWei(tx.value, res[i].decimals)).toFixed(4)}`
+                    return;
+                }
+            }
+        })
+    })
+    .catch((err) => {
+        error.value = err
+        isLoading.value = false
+    })
+    return result
 }
 
 watchEffect(() => user.value && chainId.value ? getERC20Transfers() : null)

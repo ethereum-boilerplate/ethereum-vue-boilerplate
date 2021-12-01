@@ -28,6 +28,7 @@ function getERC20Balances () {
     } )
 }
 
+
 watchEffect(() => user.value && chainId.value ? getERC20Balances() : null)
 
 export { getERC20Balances, erc20Balances, isLoading, error }

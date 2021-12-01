@@ -35,7 +35,8 @@ export default {
     ERC20Balances,
     NativeBalance,
     NativeTransactions,
-    Chain
+    Chain,
+    Coin
   },
   setup() {
     const  { chainId } = useMoralis()

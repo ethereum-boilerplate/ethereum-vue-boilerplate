@@ -20,9 +20,27 @@ export default {
         const mutatedTransfers = ref(null)
 
         const columns = [
-            { title: 'Tx', dataIndex: 'link' ,key: 'link' },
-            { title: 'From', dataIndex: 'from', key: 'from' },
-            { title: 'To', dataIndex: 'from', key: 'to' },
+            { title: 'Token', dataIndex: 'logo', key: 'logo', 
+                customRender: (item) => {
+                    let url = item.record.logo || "https://etherscan.io/images/main/empty-token.png"
+                    return <div>
+                        <img src={url} height="25" width="25" />
+                        <p style="margin: 0">{item.record.symbol}</p>
+                    </div>
+                }
+            },
+            { title: 'Value', dataIndex: 'val', key: 'val'},
+
+            { title: 'Type', dataIndex: 'type', key: 'type',  
+                customRender: (item) => { 
+                return item.record.in ? <a-tag color="green">IN</a-tag> : <a-tag color="yellow">OUT</a-tag>}  
+            },
+
+            { title: 'Tx', dataIndex: 'transaction_hash' , key: 'transaction_hash',
+                customRender: (item) => {
+                    return <a href={`${getExplorer(chainId.value)}tx/${item.record.transaction_hash}`} target="_blank">{getEllipsisTxt(item.record.transaction_hash)}</a> 
+                }
+            }
         ]
         
 
@@ -33,9 +51,6 @@ export default {
             let temp = erc20Transfers.value
             temp.map((transfer) => {
                 transfer.key = key.toString()
-                transfer.link = <a href={`${getExplorer(chainId.value)}tx/${transfer.transaction_hash}`} target="_blank">{getEllipsisTxt(transfer.transaction_hash)}</a> 
-                transfer.from = getEllipsisTxt(transfer.from_address, 5)
-                transfer.to = getEllipsisTxt(transfer.to_address, 5)
                 key++
             })
             mutatedTransfers.value = temp
