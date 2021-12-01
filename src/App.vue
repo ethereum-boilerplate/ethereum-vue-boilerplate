@@ -9,8 +9,8 @@
 
     <a-layout-content>
       <ERC20Transfers />
-      <!-- <ERC20Balances /> -->
-      <!-- <NativeTransactions /> -->
+      <ERC20Balances />
+      <NativeTransactions />
     </a-layout-content>
 
     <a-layout-footer>
@@ -23,9 +23,9 @@
 <script>
 import Authenticate from './components/Authenticate.vue'
 import ERC20Transfers from './components/ERC20Transfers.vue'
-// import ERC20Balances from './components/ERC20Balances.vue'
+import ERC20Balances from './components/ERC20Balances.vue'
 import NativeBalance from './components/NativeBalance.vue'
-// import NativeTransactions from './components/NativeTransactions.vue'
+import NativeTransactions from './components/NativeTransactions.vue'
 import Chain from './components/Chain.vue'
 import Coin from './components/Coin.vue'
 import useMoralis from './hooks/useMoralis'
@@ -34,9 +34,9 @@ export default {
   components: {
     Authenticate,
     ERC20Transfers,
-    // ERC20Balances,
+    ERC20Balances,
     NativeBalance,
-    // NativeTransactions,
+    NativeTransactions,
     Chain,
     Coin
   },
