@@ -2,6 +2,8 @@
   <div style="display: grid; justify-content: center">
     <!-- TODO: When Authenticated -> turn into avatar with disconnect button on popup -->
     <Authenticate />
+    
+    <Coin :address="shibaInuAddress" :chain="chainId"/>
 
     <!-- TODO: Add logo and styling to Current Chain -->
     <Chain />
@@ -23,6 +25,8 @@ import ERC20Balances from './components/ERC20Balances.vue'
 import NativeBalance from './components/NativeBalance.vue'
 import NativeTransactions from './components/NativeTransactions.vue'
 import Chain from './components/Chain.vue'
+import Coin from './components/Coin.vue'
+import useMoralis from './hooks/useMoralis'
 export default {
   name: 'App',
   components: {
@@ -32,6 +36,14 @@ export default {
     NativeBalance,
     NativeTransactions,
     Chain
+  },
+  setup() {
+    const  { chainId } = useMoralis()
+    const shibaInuAddress = "0x95ad61b0a150d79219dcf64e1e6cc01f0b64c4ce"
+    return {
+      chainId,
+      shibaInuAddress
+    }
   }
 }
 </script>
