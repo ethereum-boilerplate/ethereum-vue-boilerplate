@@ -7,8 +7,8 @@
 
 <script>
 import { getEllipsisTxt } from '../helpers/formatters'
-import useMoralis from '../hooks/useMoralis'
-import { getERC20Transfers, erc20Transfers, isLoading } from '../hooks/useERC20Transfers'
+import useMoralis from '../composables/useMoralis'
+import { getERC20Transfers, erc20Transfers, isLoading } from '../composables/useERC20Transfers'
 import { getExplorer } from '../helpers/networks'
 import { ref, watchEffect } from 'vue'
 export default {

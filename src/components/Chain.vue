@@ -6,7 +6,7 @@
 </template>
 
 <script>
-import useMoralis from '../hooks/useMoralis'
+import useMoralis from '../composables/useMoralis'
 import { getNativeByChain } from '../helpers/networks'
 export default {
     setup() {

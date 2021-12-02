@@ -5,8 +5,8 @@
 </template>
 
 <script>
-import useMoralisWeb3Api from '../hooks/useMoralisWeb3Api'
-import useMoralis from '../hooks/useMoralis'
+import useMoralisWeb3Api from '../composables/useMoralisWeb3Api'
+import useMoralis from '../composables/useMoralis'
 import { ref, watchEffect } from 'vue'
 export default {
     props: {

@@ -7,8 +7,8 @@
 </template>
 
 <script>
-import { getERC20Balances, erc20Balances, isLoading } from '../hooks/useERC20Balance'
-import useMoralis from '../hooks/useMoralis'
+import { getERC20Balances, erc20Balances, isLoading } from '../composables/useERC20Balance'
+import useMoralis from '../composables/useMoralis'
 import { ref, watchEffect } from 'vue'
 export default {
 

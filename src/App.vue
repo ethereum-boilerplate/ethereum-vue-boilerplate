@@ -28,7 +28,7 @@ import NativeBalance from './components/NativeBalance.vue'
 import NativeTransactions from './components/NativeTransactions.vue'
 import Chain from './components/Chain.vue'
 import Coin from './components/Coin.vue'
-import useMoralis from './hooks/useMoralis'
+import useMoralis from './composables/useMoralis'
 export default {
   name: 'App',
   components: {

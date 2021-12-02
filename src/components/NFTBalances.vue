@@ -8,8 +8,8 @@
 </template>
 
 <script>
-import { getNFTBalance, nftBalance, isLoading } from '../hooks/useNFTBalance'
-import useMoralis from '../hooks/useMoralis'
+import { getNFTBalance, nftBalance, isLoading } from '../composables/useNFTBalance'
+import useMoralis from '../composables/useMoralis'
 import { watchEffect } from 'vue'
 export default {
     setup() {

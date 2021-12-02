@@ -6,8 +6,8 @@
 </template>
 
 <script>
-import { nativeTransactions, isLoading } from '../hooks/useNativeTransactions'
-import useMoralis from '../hooks/useMoralis'
+import { nativeTransactions, isLoading } from '../composables/useNativeTransactions'
+import useMoralis from '../composables/useMoralis'
 import { getExplorer, getNativeByChain } from '../helpers/networks'
 import { getEllipsisTxt } from '../helpers/formatters'
 import { ref, watchEffect } from 'vue'

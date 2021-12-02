@@ -6,9 +6,9 @@
 </template>
 
 <script>
-import useMoralis from '../hooks/useMoralis.js'
+import useMoralis from '../composables/useMoralis.js'
 import { getNativeByChain } from '../helpers/networks.js'
-import { nativeBalance } from '../hooks/useNativeBalance.js'
+import { nativeBalance } from '../composables/useNativeBalance.js'
 import { ref, watchEffect } from 'vue'
 export default {
     setup() {

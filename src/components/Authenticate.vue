@@ -20,7 +20,7 @@
 
 <script>
 import { getEllipsisTxt } from '../helpers/formatters.js'
-import useMoralis from '../hooks/useMoralis'
+import useMoralis from '../composables/useMoralis'
 export default {
     components: {
     },
