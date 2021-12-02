@@ -1,7 +1,7 @@
 # ethereum-vue-boilerplate
 
 Frameworks:
-. Vue 3
+- Vue 3
 - ant-design-vue
 
 TODO:
