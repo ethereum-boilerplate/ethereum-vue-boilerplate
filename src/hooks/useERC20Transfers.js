@@ -19,6 +19,10 @@ function getERC20Transfers () {
     }
     )
     .then((result) => {
+        if(result.result.length < 1) {
+            isLoading.value = false  
+            return;
+        }
         getMetaData(result.result)
         .then((res) => {
             console.log(res)
@@ -47,7 +51,7 @@ async function getMetaData (result) {
         result.map((tx) => {
             for(let i = 0; i < res.length; i++) {
                 if(tx.address === res[i].address) {
-                    tx.in = user.value?.get('ethAddress') === tx.from_address ? true : false
+                    tx.in = user.value?.get('ethAddress') === tx.from_address ? false : true
                     tx.symbol = res[i].symbol
                     tx.logo = res[i].logo
                     tx.val = `${Number(Moralis.Units.FromWei(tx.value, res[i].decimals)).toFixed(4)}`

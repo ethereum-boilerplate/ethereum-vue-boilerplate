@@ -1,7 +1,7 @@
 <template>
 <!-- TODO: Add Logo to Chain + Styling -->
 <div v-if="isAuthenticated" style="color: white">
-    Current Chain : {{ getNativeByChain(chainId) }}
+    {{ getNativeByChain(chainId) }}
 </div>
 </template>
 

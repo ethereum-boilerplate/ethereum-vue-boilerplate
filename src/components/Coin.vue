@@ -20,8 +20,6 @@ export default {
         const price = ref(null)
         const tokenInfo = ref(null)
 
-        watchEffect(() => console.log(props.address, props.chain))
-
         watchEffect(() => {
             if(!props.address || !props.chain) return;
             token.getTokenPrice({

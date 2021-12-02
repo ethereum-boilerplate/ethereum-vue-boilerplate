@@ -19,6 +19,9 @@ function getNativeTransactions () {
     }
     )
     .then((result) =>{
+        result.result.map((tx) => {
+            tx.in = user.value?.get('ethAddress') === tx.from_address ? false : true
+        })
         nativeTransactions.value = result.result
         isLoading.value = false
     })

@@ -1,7 +1,7 @@
 <template>
-<div v-if="isAuthenticated">
-    <p>ERC20 Balances</p>
-    <a-table :columns="columns" :data-source="mutatedBalances" :loading="isLoading" :rowKey="(record) => record.token_address">
+<div v-if="isAuthenticated" style="width: 85vw; padding: 15px; margin: 0 auto">
+    <p style="font-size: 20px; font-weight: 600">ERC20 Balances</p>
+    <a-table :columns="columns" :scroll="{ x: 100 }" :data-source="mutatedBalances" :loading="isLoading" :rowKey="(record) => record.token_address">
     </a-table>
 </div>
 </template>
@@ -18,10 +18,12 @@ export default {
         const mutatedBalances = ref(null)
 
         const columns = [
-            { title: 'logo', dataIndex: 'logo', key: 'logo', slots: { title: 'logo' } },
-            { title: 'Name', dataIndex: 'name', key: 'name' },
-            { title: 'Symbol', dataIndex: 'symbol', key: 'symbol' },
-            { title: 'Balance', dataIndex: 'balance', key: 'balance' }
+            { title: '', dataIndex: 'logo', key: 'logo', width: 50 },
+            { title: 'Balance', dataIndex: 'balance', key: 'balance', width: 100,
+                customRender: (item) => {
+                    return `${item.record.balance} ${item.record.symbol}`
+                }
+            }
         ]
 
         const mutate = () => {

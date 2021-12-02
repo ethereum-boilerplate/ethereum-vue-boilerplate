@@ -14,7 +14,7 @@
     </a-layout-content>
 
     <a-layout-footer>
-      <Coin :address="shibaInuAddress" :chain="chainId"/>
+      <Coin :address="shibaInuAddress" chain="0x1"/>
     </a-layout-footer>
 
     </a-layout>

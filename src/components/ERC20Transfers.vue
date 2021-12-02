@@ -1,7 +1,7 @@
 <template>
   <div v-if="isAuthenticated" style="width: 85vw; padding: 15px; margin: 0 auto">
       <p style="font-size: 20px; font-weight: 600">ERC20 Transfers</p>
-    <a-table style="overflow: hidden" :scroll="{ x: screenWidth < 445 ? 1000 : 100 }" :columns="columns" :data-source="mutatedTransfers" :loading="isLoading" :rowKey="(record) => record.key"/>
+    <a-table style="overflow: hidden" :scroll="{ x: 100 }" :columns="columns" :data-source="mutatedTransfers" :loading="isLoading" :rowKey="(record) => record.key"/>
   </div>
 </template>
 
@@ -22,7 +22,7 @@ export default {
         const screenWidth = ref(window.innerWidth)
 
         const columns = [
-            { title: 'Token', dataIndex: 'logo', key: 'logo', width: screenWidth.value < 445 ? 50 : 100,
+            { title: 'Token', dataIndex: 'logo', key: 'logo', width: 100,
                 customRender: (item) => {
                     let url = item.record.logo || "https://etherscan.io/images/main/empty-token.png"
                     return <div style="display: flex; align-items: center">
@@ -31,14 +31,14 @@ export default {
                     </div>
                 }
             },
-            { title: 'Value', dataIndex: 'val', key: 'val', width: screenWidth.value < 445 ? 50 : 100 },
+            { title: 'Value', dataIndex: 'val', key: 'val', width: 100 },
 
-            { title: 'Type', dataIndex: 'type', key: 'type', width: screenWidth.value < 445 ? 50 : 100,
+            { title: 'Type', dataIndex: 'type', key: 'type', width: 100,
                 customRender: (item) => { 
                 return item.record.in ? <a-tag color="green" style="width: 45px; text-align: center">IN</a-tag> : <a-tag color="yellow" style="width: 45px; text-align: center">OUT</a-tag>}  
             },
 
-            { title: 'Tx', dataIndex: 'transaction_hash' , key: 'transaction_hash', width: screenWidth.value < 445 ? 50 : 100,
+            { title: 'Tx', dataIndex: 'transaction_hash' , key: 'transaction_hash', width: 100,
                 customRender: (item) => {
                     return <a href={`${getExplorer(chainId.value)}tx/${item.record.transaction_hash}`} target="_blank">{getEllipsisTxt(item.record.transaction_hash)}</a> 
                 }

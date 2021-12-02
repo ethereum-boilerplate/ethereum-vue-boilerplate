@@ -1,7 +1,7 @@
 <template>
-<div v-if="isAuthenticated">
-    <p>Transactions</p>
-    <a-table :columns="columns" :data-source="mutatedTransfers" :loading="isLoading" :rowKey="(record) => record.hash"/>
+<div v-if="isAuthenticated" style="width: 85vw; padding: 15px; margin: 0 auto">
+    <p style="font-size: 20px; font-weight: 600">Transactions</p>
+    <a-table :columns="columns" :scroll="{ x: 100 }" :data-source="mutatedTransfers" :loading="isLoading" :rowKey="(record) => record.hash"/>
 </div>
 </template>
 
@@ -20,8 +20,9 @@ export default {
 
         const columns = [
             { title: 'Value', dataIndex: 'val', key: 'val' },
-            { title: 'From', dataIndex: 'from', key: 'from' },
-            { title: 'To', dataIndex: 'from', key: 'to' },
+            { title: 'Type', dataIndex: 'in', key: 'in', customRender: (item) => {
+                return item.record.in ? <a-tag color="green" style="width: 45px; text-align: center">IN</a-tag> : <a-tag color="yellow" style="width: 45px; text-align: center">OUT</a-tag>}  
+            },
             { title: 'Tx', dataIndex: 'link' ,key: 'link' }
         ]
         
