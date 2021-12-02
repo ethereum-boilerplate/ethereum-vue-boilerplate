@@ -1,24 +1,29 @@
 # ethereum-vue-boilerplate
 
-Ethereum boilerplate written in vue 3
-UI: ant-design-vue
+Frameworks:
+. Vue 3
+- ant-design-vue
 
 TODO:
-Styling, adding: 
+- styling
 - more ethereum-react-boilerplate aquivalent components
 - more react-moralis aquivalent hooks
 - proper README
-
-and a lot of refactoring
+- refactor
+- build npm package vue-moralis for modular project
 
 
 ## Project setup
 ```
 yarn install
 ```
+Rename .env.example to .env and add your Moralis ServerUrl and ApplicationId
+```
+VUE_APP_MORALIS_SERVER_URL=YOUR_MORALIS_SERVER_URL
+VUE_APP_MORALIS_APP_ID=YOUR_MORALIS_APP_ID
+```
 
-### Compiles and hot-reloads for development
-Add Moralis ServerUrl and Application ID into .env and run:
+### Run Boilerplate
 ```
 yarn serve
 ```
